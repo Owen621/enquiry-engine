@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from db import SessionLocal, Website, Enquiry
 from schemas import EnquiryIn
+from email_utils import send_email
 import uuid
 
 app = FastAPI()
@@ -30,5 +31,18 @@ def create_enquiry(data: EnquiryIn):
 
     db.add(enquiry)
     db.commit()
+    send_email(
+        to_email=website.email_to,
+        subject="New enquiry received",
+        body=f"""
+    New enquiry for {website.slug}
+
+    Name: {data.name}
+    Email: {data.email}
+
+    Message:
+    {data.message}
+    """
+    )
 
     return {"status": "saved"}
