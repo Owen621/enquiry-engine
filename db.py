@@ -11,8 +11,6 @@ engine = create_engine(
 )
 SessionLocal = sessionmaker(bind=engine)
 
-SessionLocal = sessionmaker(bind=engine)
-
 Base = declarative_base()
 
 class Website(Base):
