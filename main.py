@@ -3,8 +3,16 @@ from db import SessionLocal, Website, Enquiry
 from schemas import EnquiryIn
 from email_utils import send_email
 import uuid
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def health():
@@ -12,6 +20,11 @@ def health():
 
 @app.post("/enquiry")
 def create_enquiry(data: EnquiryIn):
+
+    # Honeypot check — if filled, it's a bot
+    if data.company:
+        return {"status": "ignored"}
+
     db = SessionLocal()
 
     website = db.query(Website).filter(
@@ -31,6 +44,7 @@ def create_enquiry(data: EnquiryIn):
 
     db.add(enquiry)
     db.commit()
+
     send_email(
         to_email=website.email_to,
         subject="New enquiry received",

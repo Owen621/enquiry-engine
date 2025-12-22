@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test Enquiry Form</title>
+  </head>
+  <body>
+    <h2>Contact Us</h2>
+
+    <form id="enquiry-form">
+    <input type="hidden" name="website_slug" value="test-site" />
+
+    <!-- Honeypot field -->
+    <div style="display:none;">
+        <label>Company</label>
+        <input type="text" name="company" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <div>
+        <label>Name</label><br />
+        <input type="text" name="name" required />
+    </div>
+
+    <div>
+        <label>Email</label><br />
+        <input type="email" name="email" required />
+    </div>
+
+    <div>
+        <label>Message</label><br />
+        <textarea name="message" required></textarea>
+    </div>
+
+    <button type="submit">Send</button>
+    </form>
+
+    <p id="status"></p>
+
+    <script>
+      const form = document.getElementById("enquiry-form");
+      const status = document.getElementById("status");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(form));
+
+        const res = await fetch("http://127.0.0.1:8000/enquiry", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          status.innerText = "Enquiry sent!";
+          form.reset();
+        } else {
+          status.innerText = "Something went wrong";
+        }
+      });
+    </script>
+  </body>
+</html>
