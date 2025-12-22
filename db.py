@@ -1,8 +1,16 @@
 from sqlalchemy import create_engine, Column, String, DateTime, ForeignKey
 from sqlalchemy.orm import declarative_base, sessionmaker
 from datetime import datetime
+import os
 
-engine = create_engine("sqlite:///enquiries.db", echo=True)
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+engine = create_engine(
+    DATABASE_URL,
+    echo=True
+)
+SessionLocal = sessionmaker(bind=engine)
+
 SessionLocal = sessionmaker(bind=engine)
 
 Base = declarative_base()
