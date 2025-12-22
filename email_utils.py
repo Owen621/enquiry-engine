@@ -1,25 +1,24 @@
-import smtplib
 import os
-from email.message import EmailMessage
+import resend
 from dotenv import load_dotenv
 
 load_dotenv()
 
-EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+resend.api_key = os.getenv("RESEND_API_KEY")
 
-def send_email(to_email, subject, body):
+FROM_EMAIL = "Enquiries <enquiries@chapterweb.co.uk>"
+
+def send_email(to_email: str, subject: str, body: str):
+    if not resend.api_key:
+        print("Resend API key missing")
+        return
+
     try:
-        msg = EmailMessage()
-        msg["Subject"] = subject
-        msg["From"] = EMAIL_ADDRESS
-        msg["To"] = to_email
-        msg.set_content(body)
-
-        with smtplib.SMTP("smtp.gmail.com", 587, timeout=10) as server:
-            server.starttls()
-            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.send_message(msg)
-
+        resend.Emails.send({
+            "from": FROM_EMAIL,
+            "to": [to_email],
+            "subject": subject,
+            "text": body,
+        })
     except Exception as e:
         print("Email failed:", e)
