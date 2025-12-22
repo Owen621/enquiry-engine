@@ -60,3 +60,18 @@ def create_enquiry(data: EnquiryIn):
     )
 
     return {"status": "saved"}
+
+@app.post("/admin/add-website")
+def add_website(slug: str, email_to: str):
+    db = SessionLocal()
+
+    website = Website(
+        id=str(uuid.uuid4()),
+        slug=slug,
+        email_to=email_to
+    )
+
+    db.add(website)
+    db.commit()
+
+    return {"status": "website added"}
