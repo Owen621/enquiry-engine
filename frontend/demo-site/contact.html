@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | Chapter Café</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="logo">Chapter Café</span>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="contact.html" class="cta">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="split">
+  <div>
+    <h1>Contact Us</h1>
+    <p>Events, catering, or general enquiries.</p>
+
+    <form id="enquiry-form">
+      <input type="hidden" name="website_slug" value="demo-plumber">
+
+      <!-- Honeypot -->
+      <div class="honeypot">
+        <input type="text" name="company" autocomplete="off" tabindex="-1">
+      </div>
+
+      <input name="name" placeholder="Name" required>
+      <input name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+
+      <button type="submit">Send</button>
+      <p id="form-status"></p>
+    </form>
+  </div>
+
+  <img
+    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80"
+    alt="Coffee detail"
+  />
+</section>
+
+<script src="script.js"></script>
+<footer>
+  © 2025 Chapter Café
+</footer>
+</body>
+</html>

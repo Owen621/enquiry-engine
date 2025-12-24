@@ -6,38 +6,80 @@
 }
 
 body {
-  line-height: 1.6;
+  background: #f8fafc;
   color: #0f172a;
-  background-color: #f8fafc;
+  line-height: 1.6;
 }
 
-.container {
-  width: 90%;
-  max-width: 1000px;
+nav {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-inner {
+  max-width: 1100px;
   margin: auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* HERO */
-.hero {
-  background: #0f172a;
+.logo {
+  font-weight: 700;
+}
+
+nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.cta {
+  background: #2563eb;
   color: white;
-  padding: 80px 0;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+.hero {
+  height: 80vh;
+  background-image: url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 20px;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
+  font-size: 3rem;
+  margin-bottom: 12px;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  margin-bottom: 24px;
+  max-width: 600px;
+  margin-bottom: 20px;
 }
 
-/* BUTTON */
-.btn-primary {
-  display: inline-block;
+.btn {
   background: #2563eb;
   color: white;
   padding: 12px 24px;
@@ -46,89 +88,128 @@ body {
   font-weight: 600;
 }
 
-.btn-primary:hover {
-  background: #1d4ed8;
-}
-
-/* SECTIONS */
 section {
-  padding: 60px 0;
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
 }
 
-h2 {
+h2, h1 {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
-/* SERVICES */
-.service-grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 
-.service-card {
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.split img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.card {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
-/* WHY US */
-.why-us ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
 
-.why-us li {
-  padding: 10px 0;
-  font-size: 1.05rem;
-  text-align: center;
+.card h3 {
+  padding: 16px;
 }
 
-/* CONTACT */
-.contact form {
-  max-width: 500px;
-  margin: auto;
+.card p {
+  padding: 0 16px 16px 16px;
+  color: #475569;
+}
+
+form {
   background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-label {
-  display: block;
-  margin-bottom: 16px;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 input, textarea {
   width: 100%;
   padding: 10px;
-  margin-top: 6px;
-  border-radius: 4px;
+  margin-bottom: 12px;
+  border-radius: 6px;
   border: 1px solid #cbd5f5;
 }
 
-#form-status {
-  margin-top: 12px;
-  font-weight: 500;
+button {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-/* FOOTER */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
 footer {
   background: #0f172a;
   color: white;
   text-align: center;
-  padding: 20px 0;
-  font-size: 0.9rem;
+  padding: 24px;
 }
 
-.contact p {
+.intro {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 24px auto;
-  font-size: 1rem;
+  margin: 0 auto 40px auto;
   color: #475569;
+}
+
+.menu-section {
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.menu-image img {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
 }
 
