@@ -496,19 +496,197 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
+  .nav-inner {
+    padding: 15px 20px;
   }
   
-  .story-section, .menu-grid, .hours-location, .contact-section, .footer-content {
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .nav-links {
+    gap: 15px;
+    font-size: 0.85rem;
+  }
+  
+  nav a {
+    font-size: 0.85rem;
+  }
+  
+  .cta {
+    padding: 8px 16px;
+  }
+  
+  .hero {
+    height: 70vh;
+    margin-top: 60px;
+  }
+  
+  .hero-content {
+    padding: 0 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  
+  .btn {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+  
+  .section {
+    padding: 60px 20px;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .section-header p {
+    font-size: 1rem;
+  }
+  
+  .features {
+    gap: 35px;
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .feature h3 {
+    font-size: 1.2rem;
+  }
+  
+  .story-section {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .story-content h2 {
+    font-size: 2rem;
+  }
+  
+  .story-content p {
+    font-size: 1rem;
+  }
+  
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .menu-category h3 {
+    font-size: 1.5rem;
+  }
+  
+  .menu-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .menu-item-price {
+    text-align: left;
+  }
+  
+  .menu-showcase {
+    margin-top: 30px;
   }
   
   .values {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
   
+  .value-card {
+    padding: 30px;
+  }
+  
+  .hours-location {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 25px;
+  }
+  
+  .hours-location h3 {
+    font-size: 1.5rem;
+  }
+  
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .contact-info h2 {
+    font-size: 2rem;
+  }
+  
+  form {
+    padding: 30px 25px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  footer {
+    padding: 40px 20px 20px;
+  }
+  
+  .page-hero {
+    height: 40vh;
+    margin-top: 60px;
+  }
+  
+  .page-hero h1 {
+    font-size: 2.2rem;
+    padding: 0 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
   .nav-links {
-    gap: 20px;
+    gap: 10px;
+  }
+  
+  nav a {
+    font-size: 0.8rem;
+  }
+  
+  .cta {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero p {
+    font-size: 0.95rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.7rem;
+  }
+  
+  .page-hero h1 {
+    font-size: 1.8rem;
   }
 }
